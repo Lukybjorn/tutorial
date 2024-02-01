@@ -1,0 +1,13 @@
+
+For C progrems:
+gcc file.c -o executable
+
+
+For cpp progrems:
+g++ file.cpp -o executable
+or
+g++ file.C -o executable
+
+
+For fortran progrems:
+gfortran -o executable filename.f 
