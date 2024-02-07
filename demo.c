@@ -67,6 +67,6 @@ int main(int argc, char **argv){
     }
     print_int_array(my_array, length); 
     int index = binary_search(my_array, length, target);
-    printf("%i\n", index);
+    printf("Found %i in index %i\n", target, index);
 	return 0;
 }
