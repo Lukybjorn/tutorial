@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 int binary_search(int *array, int length, int x){
     int left = 0;
     int right = length - 1;
