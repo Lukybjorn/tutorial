@@ -2,45 +2,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-int binary_search(int *array, int length, int x){
-    int left = 0;
-    int right = length - 1;
-    while (left <= right){
-        int mid  = (left + right) / 2;
-        if (array[mid] == x){
-            return mid;
-        }
-        else if (array[mid] > x){
-            right = mid - 1;   
-        }
-        else {
-            left = mid + 1;
-        }
-    }
-    printf("No %i in the array!\n", x);
-    exit(1);
-}
-
-void print_int_array(int *array, int length){
-    if (length < 1){
-        printf("[]\n");
-    }
-    else {
-        printf("[");
-        for (int i = 0; i < length - 1; i++){
-            printf("%i, ",array[i]);
-        }
-        printf("%i]\n", array[length]); 
-    }
-}
-
+#include "array_print.h"
+#include "bin_search.h"
 
 int main(int argc, char **argv){
+	srand(time(NULL)); // initilize the random seed
     int length;
     int target;
     if (argc < 2){
-        length = 10;
-        target = 9;
+        length = (rand() % 10) * 20;
+        while (length <1){
+            length = (rand() % 10) * 20;
+        }
+        target = (rand() % 10) * (rand() % 10);
         printf("Array length not specified, set to %i.\nTarget not specified, set to %i.\n", length, target);
     }
     else if (argc == 2){
@@ -52,17 +26,13 @@ int main(int argc, char **argv){
         target = atoi(argv[2]);
     }
     
-	srand(time(NULL));
     int my_array[length];
-    /*
     int number = rand() % 10;
-    for (int i = 0; i <= length; i++){
-        my_array[i] = rand() % 10;
+    while (number < 1){
+        number = rand() % 10;
     }
-    */
-    int number = rand() % 10;
     for (int i = 0; i <= length; i++){
-        my_array[i] = i * 3;
+        my_array[i] = i * number;
     }
     print_int_array(my_array, length); 
     int index = binary_search(my_array, length, target);
