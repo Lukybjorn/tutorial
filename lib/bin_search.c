@@ -19,6 +19,6 @@ int binary_search(int *array, int length, int x){
         }
     }
     printf("No %i in the array!\n", x);
-    exit(1);
+    return -1;
 }
 

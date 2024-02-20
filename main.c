@@ -4,6 +4,7 @@
 
 #include "array_print.h"
 #include "bin_search.h"
+#include "quickSort.h"
 
 int main(int argc, char **argv){
 	srand(time(NULL)); // initilize the random seed
@@ -36,6 +37,17 @@ int main(int argc, char **argv){
     }
     print_int_array(my_array, length); 
     int index = binary_search(my_array, length, target);
-    printf("Found %i in index %i\n", target, index);
+    if (index >= 0){
+        printf("Found %i in index %i\n", target, index);
+    }
+    printf("\n\nquicksort test:\n");
+
+    int new_array[length];
+    for (int i = 0; i <= length; i++){
+        new_array[i] = rand() % 100 + 1;
+    }
+    print_int_array(new_array, length);
+    quicksort(new_array, 0, length);
+    print_int_array(new_array, length);
 	return 0;
 }

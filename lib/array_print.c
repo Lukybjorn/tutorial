@@ -3,7 +3,7 @@
 
 #include "array_print.h"
 
-void print_int_array(int *array, int length){
+void print_int_array(int array[], int length){
     if (length < 1){
         printf("[]\n");
     }
